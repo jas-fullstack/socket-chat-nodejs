@@ -1,0 +1,51 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node -- app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && babel . -d dist --ignore node_modules && cp package.json dist && cp -R views dist && cp -R lib/email/template dist/lib/email",
+    "serve": "NODE_ENV=production pm2 start dist/app.js --name=live_vadify_app",
+    "ri": "rm -rf node_modules && npm install"
+  },
+  "keywords": [],
+  "author": "Jaswinder",
+  "dependencies": {
+    "@babel/plugin-transform-regenerator": "^7.7.5",
+    "@hapi/joi": "^16.1.7",
+    "aws-sdk": "^2.775.0",
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.19.0",
+    "config": "^3.2.4",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "email-templates": "^2.7.1",
+    "express": "^4.16.2",
+    "express-fileupload": "^1.1.6",
+    "express-joi-validation": "^4.0.3",
+    "http": "0.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
+    "mongoose": "^5.5.12",
+    "nodemailer": "^6.4.5",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "socket.io": "^2.3.0",
+    "socketio-sticky-session": "^0.4.3",
+    "swagger-jsdoc": "^3.4.0",
+    "swagger-ui-express": "^4.1.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.19.0"
+  }
+}
